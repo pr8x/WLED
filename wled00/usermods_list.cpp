@@ -11,6 +11,8 @@
  */
 //#include "../usermods/EXAMPLE_v2/usermod_v2_example.h"
 
+#include "../usermods/MacAddress/usermod_macaddress.h"
+
 #ifdef USERMOD_BATTERY
 #include "../usermods/Battery/usermod_v2_Battery.h"
 #endif
@@ -206,12 +208,10 @@
 
 void registerUsermods()
 {
-  /*
-   * Add your usermod class name here
-   * || || ||
-   * \/ \/ \/
-   */
-  //usermods.add(new MyExampleUsermod());
+  //usermods.add(new MyExampleUsermod("FOO", true));  
+  delay(500);
+  usermods.add(new MacAddressMod());
+
 #ifdef USERMOD_BATTERY
   usermods.add(new UsermodBattery("Battery", false));  // WLEDMM
 #endif
